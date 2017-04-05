@@ -470,7 +470,8 @@ public class ApplicationConnection implements HasHandlers {
     private boolean isActive() {
         return !getMessageHandler().isInitialUidlHandled() || isWorkPending()
                 || getMessageSender().hasActiveRequest()
-                || isExecutingDeferredCommands();
+                || isExecutingDeferredCommands()
+                || configuration.isDebugWindowLoading();
     }
 
     private native void initializeTestbenchHooks(
